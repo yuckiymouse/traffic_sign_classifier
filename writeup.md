@@ -210,4 +210,7 @@ For the last image, the prediction and probability are following the table below
 I guess at first convolutional layer, the neural network seems to check the edge of the image.
 Then as moving forward,  it checks where white pixels and black pixels are.
 
-![alt text][image8]  ![alt text][image9] ![alt text][image10]  ![alt text][image11]
+![alt text][image8]  "Convolutional layer 1"
+![alt text][image9]  "ReLu 1"
+![alt text][image10] "Convolutional layer 2"
+![alt text][image11] "ReLu 2"
