@@ -125,7 +125,7 @@ My final model results were:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4]  ![alt text][image5]   ![alt text][image6]   ![alt text][image7]   ![alt text][image8]
+![alt text][image4]  ![alt text][image5]   ![alt text][image6]   ![alt text][image7] 
 
 The first image might be difficult to classify because the size of the sign is very small and also two same signs are shown up.  Another difficult pics are the forth one. It has two different signs and both are in the traget labels.
 
