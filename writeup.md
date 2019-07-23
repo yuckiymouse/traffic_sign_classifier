@@ -26,6 +26,11 @@ The goals / steps of this project are the following:
 [image5]: /trafic_sign_pics/1_sign3.png "Traffic Sign 3"
 [image6]: /trafic_sign_pics/26_sign4.png "Traffic Sign 4"
 [image7]: /trafic_sign_pics/30_sign5.png "Traffic Sign 5"
+[image8]: /trafic_sign_pics/conv1.png "Convolutional layer 1"
+[image9]: /trafic_sign_pics/conv1_relu.png "ReLu 1"
+[image10]: /trafic_sign_pics/conv2.png "Convolutional layer 2"
+[image11]: /trafic_sign_pics/conv2_relu.png "ReLu 2"
+
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -71,16 +76,19 @@ As a last step, I normalized the image data because pixel values are ofren unsig
 
 #### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
+I added dropout layer after ReLu layers to avoid overfitting.
 My final model consisted of the following layers:
 
 | Layer         		|     Description	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x3 RGB image   							| 
-| Convolution 3x3     	| 1x1 stride, varid padding, outputs  28x28x6. 	|
+| Convolution 5x5     	| 1x1 stride, varid padding, outputs  28x28x6. 	|
 | RELU					|												|
+| Dropout				| p = 0.9                                       |
 | Max pooling	      	| 2x2 stride, outputs 14x14x6 				    |
-| Convolution 3x3	    | 1x1 stride, varid padding, outputs 10x10x16.  |
+| Convolution 5x5	    | 1x1 stride, varid padding, outputs 10x10x16.  |
 | RELU	      	        |                                               |
+| Dropout				| p = 0.9                                       |
 | Max pooling           | 2x2 stride, outputs 5x5x16                    |
 | Fully connected		| outputs   120   							    |
 | RELU                  |                                               |
@@ -96,10 +104,10 @@ To train the model, I used Relu activation function because it is very simple an
 Combination of batch size, the number of epochs and learning rate affects the model's accuracy.
 
 The batch size defines the number of samples that will be propagated through the network.
-The batch size was 128 as default. However, that batch size didn't implove the accuracy on each epoch so I decreased it to 40 at last.
+The batch size was 128 as default. However, that batch size didn't implove the accuracy on each epoch so I decreased it to 60 at last.
 
 The number of epochs is a hyperparameter that defines the number times that the learning algorithm will work through the entire training dataset.
-The number of epochs is set as 20.
+The number of epochs is set as 6.
 
 To avoid the overfitting,  I needed to decrease the number of epochs and increase the batch sizes,
 
@@ -109,9 +117,9 @@ The default learning rate was 0.001. When I changed only learning rate into 0.00
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of 0.999
-* validation set accuracy of 0.944
-* test set accuracy of 0.923
+* training set accuracy of 0.993
+* validation set accuracy of 0.922
+* test set accuracy of 0.922
  
 
 ### Test a Model on New Images
@@ -131,29 +139,29 @@ Here are the results of the prediction:
 
 | Image			        | Prediction	        					         | 
 |:---------------------:|:--------------------------------------------------:| 
-| Speed limit (50km/h)  | End of no passing by vehicles over 3.5 metric tons | 
+| Speed limit (50km/h)  | Slippery road                                      | 
 | Pedestrians           | Pedestrians                                        |
-| Beware of ice/snow    | General caution                                    |
-| Speed limit (30km/h)	| Speed limit (30km/h)                               |
+| Beware of ice/snow    | Slippery road                                      |
+| Speed limit (30km/h)	| Go straight or left                                |
 | Slippery Road			| No passing                                         |
 
 
-The model couldn't predict labels for new images on the web.
+The model predicted correct labels for some of new images on the web. The accuracy was 40%.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-For the first image, the model is sure that is speed limit (80km/h). The top five soft max probabilities were following the table below.
+For the first image, the model is sure that is  `End of no passing by vehicles over 3.5 metric tons`. The top five soft max probabilities were following the table below.
 
 | Probability         	| Prediction	        					        | 
 |:---------------------:|:-------------------------------------------------:| 
-| 1                     | End of no passing by vehicles over 3.5 metric tons| 
-| 0                     | Speed limit (100km/h)                             |
+| 1                     | Slippery road                                     | 
+| 1.26353479e-08        | End of no passing by vehicles over 3.5 metric tons|
 | 0                     | Speed limit (20km/h)                              |
 | 0                     | Speed limit (30km/h)                              |
 | 0                     | Speed limit (50km/h)                              |
 
 
-For the second image , the prediction and probability were following the table below. It's sured the image is Right-of-way at the next intersection.
+For the second image , the prediction and probability were following the table below. It's sured the image is `Pedestrians` at the next intersection.
 
 | Probability         	| Prediction	        					    | 
 |:---------------------:|:---------------------------------------------:| 
@@ -167,7 +175,7 @@ For the third image, the prediction and probability are following the table belo
 
 | Probability         	| Prediction	        					    | 
 |:---------------------:|:---------------------------------------------:| 
-| 1                     | Wild animals crossing                         | 
+| 1                     | Speed limit (70km/h)                          | 
 | 0                     | Speed limit (20km/h)                          |
 | 0                     | Speed limit (30km/h)                          |
 | 0                     | Speed limit (50km/h)                          |
@@ -178,7 +186,7 @@ For the forth image, the prediction and probability are following the table belo
 
 | Probability         	| Prediction	        					    | 
 |:---------------------:|:---------------------------------------------:| 
-| 1                     | Speed limit (30km/h)                          | 
+| 1                     | General caution                               | 
 | 0                     | Speed limit (20km/h)                          |
 | 0                     | Speed limit (50km/h)                          |
 | 0                     | Speed limit (60km/h)                          |
@@ -195,10 +203,14 @@ For the last image, the prediction and probability are following the table below
 | 0                     | Speed limit (50km/h)                          |
 | 0                     | Speed limit (60km/h)                          |
 
-Every time, the model predicts just one option surely 100 % even though that label is wrong. 
-
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
+I guess at first convolutional layer, the neural network seems to check the edge of the image.
+Then as moving forward,  it checks where white pixels and black pixels are.
 
+![alt text][image8]
+![alt text][image9]
+![alt text][image10]
+![alt text][image11]
