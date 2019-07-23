@@ -1,6 +1,9 @@
 # **Traffic Sign Recognition** 
 
 ## Writeup
+
+CAREFUL! Location of `data` is different from where the notebook code shows.
+
 ---
 
 **Build a Traffic Sign Recognition Project**
