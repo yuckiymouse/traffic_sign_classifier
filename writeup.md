@@ -79,22 +79,22 @@ As a last step, I normalized the image data because pixel values are ofren unsig
 I added dropout layer after ReLu layers to avoid overfitting.
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					| 
+| Layer         		      |     Description	        					                 | 
 |:---------------------:|:---------------------------------------------:| 
-| Input         		| 32x32x3 RGB image   							| 
-| Convolution 5x5     	| 1x1 stride, varid padding, outputs  28x28x6. 	|
-| RELU					|												|
-| Dropout				| p = 0.9                                       |
-| Max pooling	      	| 2x2 stride, outputs 14x14x6 				    |
-| Convolution 5x5	    | 1x1 stride, varid padding, outputs 10x10x16.  |
-| RELU	      	        |                                               |
-| Dropout				| p = 0.9                                       |
+| Input         		      | 32x32x3 RGB image   							                   | 
+| Convolution 5x5     	 | 1x1 stride, varid padding, outputs  28x28x6. 	|
+| RELU					             |												                                   |
+| Dropout				           | p = 0.9                                       |
+| Max pooling	      	   | 2x2 stride, outputs 14x14x6 				              |
+| Convolution 5x5	      | 1x1 stride, varid padding, outputs 10x10x16.  |
+| RELU	      	          |                                               |
+| Dropout				           | p = 0.9                                       |
 | Max pooling           | 2x2 stride, outputs 5x5x16                    |
-| Fully connected		| outputs   120   							    |
+| Fully connected		     | outputs   120   							                       |
 | RELU                  |                                               |
 | Fully connected       | outputs  84                                   |
 | RELU                  |                                               |
-| Fully connected 	    | outputs  43						            |
+| Fully connected 	     | outputs  43						                             |
  
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
@@ -128,8 +128,7 @@ My final model results were:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+![alt text][image4]  ![alt text][image5]   ![alt text][image6]   ![alt text][image7]   ![alt text][image8]
 
 The first image might be difficult to classify because the size of the sign is very small and also two same signs are shown up.  Another difficult pics are the forth one. It has two different signs and both are in the traget labels.
 
@@ -137,13 +136,13 @@ The first image might be difficult to classify because the size of the sign is v
 
 Here are the results of the prediction:
 
-| Image			        | Prediction	        					         | 
+| Image			              | Prediction	        					                           | 
 |:---------------------:|:--------------------------------------------------:| 
 | Speed limit (50km/h)  | Slippery road                                      | 
 | Pedestrians           | Pedestrians                                        |
 | Beware of ice/snow    | Slippery road                                      |
-| Speed limit (30km/h)	| Go straight or left                                |
-| Slippery Road			| No passing                                         |
+| Speed limit (30km/h)	 | Go straight or left                                |
+| Slippery Road			      | No passing                                         |
 
 
 The model predicted correct labels for some of new images on the web. The accuracy was 40%.
@@ -152,7 +151,7 @@ The model predicted correct labels for some of new images on the web. The accura
 
 For the first image, the model is sure that is  `End of no passing by vehicles over 3.5 metric tons`. The top five soft max probabilities were following the table below.
 
-| Probability         	| Prediction	        					        | 
+| Probability         	 | Prediction	        					                          | 
 |:---------------------:|:-------------------------------------------------:| 
 | 1                     | Slippery road                                     | 
 | 1.26353479e-08        | End of no passing by vehicles over 3.5 metric tons|
@@ -163,7 +162,7 @@ For the first image, the model is sure that is  `End of no passing by vehicles o
 
 For the second image , the prediction and probability were following the table below. It's sured the image is `Pedestrians` at the next intersection.
 
-| Probability         	| Prediction	        					    | 
+| Probability         	 | Prediction	        					                      | 
 |:---------------------:|:---------------------------------------------:| 
 | 1                     | Pedestrians                                   | 
 | 0                     | Speed limit (20km/h)                          |
@@ -173,7 +172,7 @@ For the second image , the prediction and probability were following the table b
 
 For the third image, the prediction and probability are following the table below.
 
-| Probability         	| Prediction	        					    | 
+| Probability         	 | Prediction	        					                      | 
 |:---------------------:|:---------------------------------------------:| 
 | 1                     | Speed limit (70km/h)                          | 
 | 0                     | Speed limit (20km/h)                          |
@@ -184,7 +183,7 @@ For the third image, the prediction and probability are following the table belo
 
 For the forth image, the prediction and probability are following the table below.
 
-| Probability         	| Prediction	        					    | 
+| Probability         	 | Prediction	        					                      | 
 |:---------------------:|:---------------------------------------------:| 
 | 1                     | General caution                               | 
 | 0                     | Speed limit (20km/h)                          |
@@ -195,7 +194,7 @@ For the forth image, the prediction and probability are following the table belo
 
 For the last image, the prediction and probability are following the table below.
 
-| Probability         	| Prediction	        					    | 
+| Probability         	 | Prediction	        					                      | 
 |:---------------------:|:---------------------------------------------:| 
 | 1                     | No passing                                    | 
 | 0                     | Speed limit (20km/h)                          |
@@ -210,7 +209,10 @@ For the last image, the prediction and probability are following the table below
 I guess at first convolutional layer, the neural network seems to check the edge of the image.
 Then as moving forward,  it checks where white pixels and black pixels are.
 
-![alt text][image8]
+![alt text][image8] 
+
 ![alt text][image9]
+
 ![alt text][image10]
+
 ![alt text][image11]
