@@ -21,15 +21,15 @@ The goals / steps of this project are the following:
 
 [image1]: /label_count_dif.jpg "Label count difference"
 [image2]: /gray_image.jpg "Grayscaling"
-[image3]: /trafic_sign_pics/13_sign1.png "Traffic Sign 1"
+[image3]: /trafic_sign_pics/2_sign1.png "Traffic Sign 1"
 [image4]: /trafic_sign_pics/27_sign2.png "Traffic Sign 2"
 [image5]: /trafic_sign_pics/1_sign3.png "Traffic Sign 3"
-[image6]: /trafic_sign_pics/26_sign4.png "Traffic Sign 4"
+[image6]: /trafic_sign_pics/25_sign4.png "Traffic Sign 4"
 [image7]: /trafic_sign_pics/30_sign5.png "Traffic Sign 5"
-[image8]: /trafic_sign_pics/conv1.png "Convolutional layer 1"
-[image9]: /trafic_sign_pics/conv1_relu.png "ReLu 1"
-[image10]: /trafic_sign_pics/conv2.png "Convolutional layer 2"
-[image11]: /trafic_sign_pics/conv2_relu.png "ReLu 2"
+[image8]: /conv1.png "Convolutional layer 1"
+[image9]: /conv1_relu.png "ReLu 1"
+[image10]: /conv2.png "Convolutional layer 2"
+[image11]: /conv2_relu.png "ReLu 2"
 
 
 ## Rubric Points
