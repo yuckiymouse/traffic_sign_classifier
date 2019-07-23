@@ -128,7 +128,8 @@ My final model results were:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4]  ![alt text][image5]   ![alt text][image6]   ![alt text][image7] 
+
+![alt text][image3]  ![alt text][image4]  ![alt text][image5]   ![alt text][image6]   ![alt text][image7] 
 
 The first image might be difficult to classify because the size of the sign is very small and also two same signs are shown up.  Another difficult pics are the forth one. It has two different signs and both are in the traget labels.
 
@@ -209,10 +210,4 @@ For the last image, the prediction and probability are following the table below
 I guess at first convolutional layer, the neural network seems to check the edge of the image.
 Then as moving forward,  it checks where white pixels and black pixels are.
 
-![alt text][image8] 
-
-![alt text][image9]
-
-![alt text][image10]
-
-![alt text][image11]
+![alt text][image8]  ![alt text][image9] ![alt text][image10]  ![alt text][image11]
